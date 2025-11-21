@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Game | Ethan Evans</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Minimal GVC-ish frame for the canvas */
+    .game-wrap { background: var(--surface); border: 1px dashed rgba(43,36,31,.25); border-radius: var(--radius); padding: 16px; }
+    .hud { display:flex; gap:8px; align-items:center; justify-content:space-between; margin-bottom: 10px; }
+    .hud .left, .hud .right { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .btn { display:inline-block; background: var(--accent-2); color:#1b150f; padding:8px 12px; border-radius:10px; text-decoration:none; font-weight:700; border: 1px dashed rgba(43,36,31,.35); }
+    .pill { display:inline-block; background: var(--bg); border: 1px dashed rgba(43,36,31,.25); border-radius: 999px; padding: 4px 10px; }
+    canvas { width: 100%; height: auto; display:block; border-radius: 10px; background: repeating-linear-gradient(90deg, rgba(0,0,0,.02) 0 2px, transparent 2px 4px),
+                                                 repeating-linear-gradient(0deg, rgba(0,0,0,.02) 0 2px, transparent 2px 4px); }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <div class="brand">Ethan Evans</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="hobbies.html">Hobbies</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="career.html">Career</a></li>
+          <li><a href="game.html">Game</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Game -->
+  <section>
+    <div class="container">
+      <h1 class="section-title">Press the Button</h1>
+      <p class="section-sub">WASD / Arrow Keys to move. Press the button on each level.</p>
+
+      <div class="game-wrap">
+        <div class="hud">
+          <div class="left">
+            <span class="pill">Level: <strong id="level-label">1</strong>/3</span>
+            <span class="pill">Status: <strong id="status-label">Get to the button</strong></span>
+          </div>
+          <div class="right">
+            <button id="reset" class="btn" type="button">Reset</button>
+            <button id="mute" class="btn" type="button">Sound: Off</button>
+          </div>
+        </div>
+        <canvas id="game" width="900" height="540" aria-label="Press the Button game"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">© <span id="yr"></span> Ethan Evans</div>
+    <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+    <script src="js/script.js"></script>
+    <script src="js/game.js"></script>
+  </footer>
+</body>
+</html>
