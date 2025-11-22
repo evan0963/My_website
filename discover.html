@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discover UMD | Ethan Evans</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=DM+Serif+Display:ital@0;1&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Shared site stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION (same as all other pages) -->
+  <div class="navwrap">
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <span class="dot"></span>
+          Ethan Evans
+        </div>
+        <div class="navlinks" id="navlinks">
+          <a href="index.html">Home</a>
+          <a href="hobbies.html">Hobbies</a>
+          <a href="discover.html" aria-current="page">Discover UMD</a>
+          <a href="resume.html">Resume</a>
+          <a href="career.html">Career</a>
+          <a href="game.html">Game</a>
+          <a class="nav-cta" href="https://www.umdmis.com" target="_blank">MIS @ UMD</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div>
+          <h1>Discover UMD & Duluth</h1>
+          <p class="lede">
+            Why I chose the University of Minnesota Duluth, what I love about living here,
+            and a look into campus life through our team’s UMD showcase video.
+          </p>
+          <p>
+            Duluth is truly a city on a hill (or rather, a cliff by the lake)! The blend of
+            outdoor adventure, tight-knit community, and strong academics makes it a unique
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- TEAM UMD VIDEO -->
+    <section>
+      <div class="container">
+        <article class="card">
+          <h2 class="section-title">Experience UMD — Team Video</h2>
+          <p class="section-sub">Our 30–90 second marketing video highlighting UMD life.</p>
+
+          <!-- Embedded Google Drive video -->
+          <div class="video-frame">
+            <iframe
+              src="https://drive.google.com/file/d/1tIklLPioMtfftFQbxacZ-iYytP4_PwvT/preview"
+              width="100%"
+              height="480"
+              allow="autoplay"
+              allowfullscreen
+              loading="lazy"
+              style="border:0;">
+            </iframe>
+          </div>
+
+          <p class="section-sub" style="margin-top:12px;">
+            (Video hosted via Google Drive to keep the site lightweight on GitHub Pages.)
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- WHY I CHOSE UMD -->
+    <section>
+      <div class="container">
+        <article class="card">
+          <h2 class="section-title">Why I Chose UMD</h2>
+          <p class="section-sub">The lake, the school and the nature.</p>
+
+          <p>
+            I chose UMD, the second school I applied for, for a few reasons
+          </p>
+
+          <ul>
+            <li><strong>Beautiful environment around me</strong></li>
+            <li><strong>Small class sizes</strong> with professors who actually know you</li>
+            <li><strong>Career connections</strong> through LSBE and UMD networking events</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- WHAT I LOVE ABOUT DULUTH -->
+    <section>
+      <div class="container">
+        <article class="card">
+          <h2 class="section-title">What I Love About Duluth</h2>
+          <p class="section-sub">A city built for students who love nature, adventure, and community.</p>
+
+          <p>
+            Duluth has become home to me, its mix of outdoor activities, friendly people, and scenic views
+            make it a great place to live and study.
+          </p>
+
+          <p>
+            My favorite parts of Duluth:
+          </p>
+
+          <ul>
+            <li>Chester Bowl & Spirit Mountain in winter</li>
+            <li>Hartley Trail</li>
+            <li>Asian Kitchen</li>
+            <li>Lincoln Park</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- MY CAMPUS EXPERIENCE -->
+    <section>
+      <div class="container">
+        <article class="card">
+          <h2 class="section-title">My Campus Experience</h2>
+          <p class="section-sub">How UMD has shaped my time here.</p>
+
+          <p>
+            Being a student at UMD has given me opportunities to grow academically, socially, and personally.
+          </p>
+
+          <p>
+            Some highlights of my UMD experience so far:
+          </p>
+
+          <ul>
+            <li>Being an active member of my service fraternity, Alpha Delta Nu Mu</li>
+            <li>Being a data analyst intern for the career center</li>
+            <li>Being the Vice President of Black Men Serving Excellence</li>
+            <li>Exploring Duluth with friends between exams and projects</li>
+          </ul>
+
+          <p>
+            Overall, UMD has become a place that balances learning, community, and adventure —
+            and I’m glad I chose to study here.
+          </p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © <span id="yr"></span> Ethan Evans — Built with vanilla HTML/CSS
+    </div>
+  </footer>
+
+  <script>
+    const yrEl = document.getElementById('yr');
+    if (yrEl) yrEl.textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -52,8 +52,6 @@
     .grid > *{flex:1 1 280px;max-width:100%}
 
     .card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;border:1px dashed rgba(43,36,31,.25);height:auto;display:flex;flex-direction:column}
-    .card img{width:min(100%, 375px);max-height:667px;height:auto;border-radius:12px;margin-bottom:10px;border:3px solid var(--accent2);display:block;margin-left:auto;margin-right:auto}
-    .card video{width:100%;height:auto;border-radius:12px;border:3px solid var(--accent2)}
     .card img{width:100%;height:auto;border-radius:12px;margin-bottom:10px;border:3px solid var(--accent2)}
 
     footer{padding:40px 0;color:#8b8076;text-align:center}
@@ -63,10 +61,14 @@
   <div class="navwrap">
     <div class="container">
       <nav>
-        <div class="brand"><span class="dot"></span> Ethan Evans</div>
+        <div class="brand">
+          <span class="dot"></span>
+          Ethan Evans
+        </div>
         <div class="navlinks" id="navlinks">
           <a href="index.html" aria-current="page">Home</a>
           <a href="hobbies.html">Hobbies</a>
+          <a href="discover.html">Discover UMD</a>
           <a href="resume.html">Resume</a>
           <a href="career.html">Career</a>
           <a href="game.html">Game</a>
@@ -82,13 +84,13 @@
         <div>
           <h1>Hi, I’m Ethan</h1>
           <p class="lede">MIS + Business Analytics at UMD</p>
-          <p>I connect data, design, and decisions. I’ve built dashboards for 6,000+ records, automated data cleaning with SQL, and love turning messy spreadsheets into clear stories.</p>
+          <p>
+            I connect data, design, and decisions. I’ve built dashboards for 6,000+ records,
+            automated data cleaning with SQL, and love turning messy spreadsheets into clear stories.
+          </p>
         </div>
         <div class="portrait">
-          <img src="images/Headshot2024.jpg"          # change to your site folder first
-          Set-Location -Path "c:\Users\Ethan\Documents\MIS2201\My_website"
-          python -m http.server 8000
-          # then visit http://localhost:8000 in your browser" alt="Ethan Evans portrait" />
+          <img src="images/Headshot2024.jpg" alt="Ethan Evans portrait" />
         </div>
       </div>
     </div>
@@ -98,7 +100,13 @@
     <div class="container">
       <div class="card">
         <h2 class="section-title">Professional Introduction</h2>
-        <p>I’m Ethan Evans, a driven Management Information Systems and Business Analytics student at the University of Minnesota Duluth. I combine technical skill with curiosity to find patterns, clean data, and communicate insights through clear, actionable visuals. Experienced with SQL, Power BI, and Excel, I aim to make data-driven decisions accessible and impactful in business intelligence and analytics settings.</p>
+        <p>
+          I’m Ethan Evans, a driven Management Information Systems and Business Analytics student
+          at the University of Minnesota Duluth. I combine technical skill with curiosity to find patterns,
+          clean data, and communicate insights through clear, actionable visuals. Experienced with SQL,
+          Power BI, and Excel, I aim to make data-driven decisions accessible and impactful in business
+          intelligence and analytics settings.
+        </p>
       </div>
     </div>
   </section>
@@ -124,24 +132,35 @@
         <article class="card">
           <img src="images/snowboarding.jpg" alt="Snowboarding" />
           <h3>Snowboarding</h3>
-          <p>I’ve been snowboarding for <strong>4 years</strong>. I love going on <em>side hits</em> and aspire to finally improve in the <strong>terrain park</strong>.</p>
+          <p>
+            I’ve been snowboarding for <strong>4 years</strong>. I love going on <em>side hits</em>
+            and aspire to finally improve in the <strong>terrain park</strong>.
+          </p>
         </article>
         <article class="card">
           <img src="images/golfing.jpg" alt="Golfing" />
           <h3>Golfing</h3>
-          <p>I’ve been golfing for <strong>3 years</strong>, currently sit around an <strong>18 handicap</strong>. Trust me, I’m way better in the <strong>short game</strong> than I’ll ever be in the <strong>long game</strong>.</p>
+          <p>
+            I’ve been golfing for <strong>3 years</strong>, currently sit around an
+            <strong>18 handicap</strong>. Trust me, I’m way better in the <strong>short game</strong>
+            than I’ll ever be in the <strong>long game</strong>.
+          </p>
         </article>
       </div>
     </div>
   </section>
 
   <footer>
-    <div class="container">© <span id="yr"></span> Ethan Evans — Built with vanilla HTML/CSS</div>
+    <div class="container">
+      © <span id="yr"></span> Ethan Evans — Built with vanilla HTML/CSS
+    </div>
   </footer>
 
   <script>
     const yrEl = document.getElementById('yr');
-    if(yrEl){ yrEl.textContent = new Date().getFullYear(); }
+    if (yrEl) {
+      yrEl.textContent = new Date().getFullYear();
+    }
   </script>
 </body>
 </html>

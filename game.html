@@ -4,65 +4,126 @@
   <meta charset="utf-8">
   <title>Game | Ethan Evans</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts (matched to other pages) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=DM+Serif+Display:ital@0;1&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Shared site styles -->
   <link rel="stylesheet" href="css/style.css">
+
   <style>
-    /* Minimal GVC-ish frame for the canvas */
-    .game-wrap { background: var(--surface); border: 1px dashed rgba(43,36,31,.25); border-radius: var(--radius); padding: 16px; }
-    .hud { display:flex; gap:8px; align-items:center; justify-content:space-between; margin-bottom: 10px; }
-    .hud .left, .hud .right { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-    .btn { display:inline-block; background: var(--accent-2); color:#1b150f; padding:8px 12px; border-radius:10px; text-decoration:none; font-weight:700; border: 1px dashed rgba(43,36,31,.35); }
-    .pill { display:inline-block; background: var(--bg); border: 1px dashed rgba(43,36,31,.25); border-radius: 999px; padding: 4px 10px; }
-    canvas { width: 100%; height: auto; display:block; border-radius: 10px; background: repeating-linear-gradient(90deg, rgba(0,0,0,.02) 0 2px, transparent 2px 4px),
-                                                 repeating-linear-gradient(0deg, rgba(0,0,0,.02) 0 2px, transparent 2px 4px); }
+    /* Minimal GVC-ish frame for the canvas, using your global theme vars */
+    .game-wrap {
+      background: var(--surface);
+      border: 1px dashed rgba(43,36,31,.25);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .hud {
+      display:flex;
+      gap:8px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .hud .left,
+    .hud .right {
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn {
+      display:inline-block;
+      background: var(--accent2);
+      color:#2b241f;
+      padding:8px 12px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      border: 1px dashed rgba(43,36,31,.35);
+      cursor:pointer;
+    }
+    .pill {
+      display:inline-block;
+      background: var(--bg);
+      border: 1px dashed rgba(43,36,31,.25);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.9rem;
+    }
+    canvas {
+      width: 100%;
+      height: auto;
+      display:block;
+      border-radius: 10px;
+      background:
+        repeating-linear-gradient(90deg, rgba(0,0,0,.02) 0 2px, transparent 2px 4px),
+        repeating-linear-gradient(0deg,  rgba(0,0,0,.02) 0 2px, transparent 2px 4px);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header / Nav -->
-  <header class="site-header">
+  <!-- Sticky Navigation (EXACT same structure as other pages) -->
+  <div class="navwrap">
     <div class="container">
-      <nav class="navbar">
-        <div class="brand">Ethan Evans</div>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="hobbies.html">Hobbies</a></li>
-          <li><a href="discover.html">Discover</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="career.html">Career</a></li>
-          <li><a href="game.html">Game</a></li>
-        </ul>
+      <nav>
+        <div class="brand">
+          <span class="dot"></span>
+          Ethan Evans
+        </div>
+        <div class="navlinks" id="navlinks">
+          <a href="index.html">Home</a>
+          <a href="hobbies.html">Hobbies</a>
+          <a href="discover.html">Discover UMD</a>
+          <a href="resume.html">Resume</a>
+          <a href="career.html">Career</a>
+          <a href="game.html" aria-current="page">Game</a>
+          <a class="nav-cta" href="https://www.umdmis.com" target="_blank" rel="noopener">MIS @ UMD</a>
+        </div>
       </nav>
     </div>
-  </header>
+  </div>
 
-  <!-- Game -->
-  <section>
-    <div class="container">
-      <h1 class="section-title">Press the Button</h1>
-      <p class="section-sub">WASD / Arrow Keys to move. Press the button on each level.</p>
+  <main>
+    <section>
+      <div class="container">
+        <h1 class="section-title">Press the Button</h1>
+        <p class="section-sub">WASD / Arrow Keys to move. Press the button on each level.</p>
 
-      <div class="game-wrap">
-        <div class="hud">
-          <div class="left">
-            <span class="pill">Level: <strong id="level-label">1</strong>/3</span>
-            <span class="pill">Status: <strong id="status-label">Get to the button</strong></span>
+        <div class="game-wrap">
+          <div class="hud">
+            <div class="left">
+              <span class="pill">Level: <strong id="level-label">1</strong>/3</span>
+              <span class="pill">Status: <strong id="status-label">Get to the button</strong></span>
+            </div>
+            <div class="right">
+              <button id="reset" class="btn" type="button">Reset</button>
+              <button id="mute" class="btn" type="button">Sound: Off</button>
+            </div>
           </div>
-          <div class="right">
-            <button id="reset" class="btn" type="button">Reset</button>
-            <button id="mute" class="btn" type="button">Sound: Off</button>
-          </div>
+          <canvas id="game" width="900" height="540" aria-label="Press the Button game"></canvas>
         </div>
-        <canvas id="game" width="900" height="540" aria-label="Press the Button game"></canvas>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">© <span id="yr"></span> Ethan Evans</div>
-    <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-    <script src="js/script.js"></script>
-    <script src="js/game.js"></script>
+  <!-- Footer (same style as other pages) -->
+  <footer>
+    <div class="container">
+      © <span id="yr"></span> Ethan Evans — Built with vanilla HTML/CSS
+    </div>
   </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+  <script src="js/script.js"></script>
+  <script src="js/game.js"></script>
 </body>
 </html>
